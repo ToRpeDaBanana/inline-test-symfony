@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="text-center">Результаты поиска "{{ query }}"</h2>
+
+    {% if results is empty %}
+        <p class="text-muted text-center">❌ Ничего не найдено.</p>
+    {% else %}
+        <ul class="list-group mt-3">
+            {% for result in results %}
+                <li class="list-group-item">
+                    <strong>📌 Запись:</strong> {{ result.post_title }} <br>
+                    <strong>💬 Комментарий:</strong> {{ result.comment_body }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="text-center mt-3">
+        <a href="{{ path('search') }}" class="btn btn-secondary">🔄 Новый поиск</a>
+    </div>
+</div>
+{% endblock %}

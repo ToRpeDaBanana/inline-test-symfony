@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="text-center">🔍 Поиск записей по комментариям</h2>
+    
+    <form action="{{ path('search_results') }}" method="GET" class="d-flex justify-content-center mt-3">
+        <input type="text" name="query" class="form-control w-50 me-2" placeholder="Введите текст..." required minlength="3">
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
+</div>
+{% endblock %}
